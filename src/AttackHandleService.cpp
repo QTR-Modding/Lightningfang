@@ -40,13 +40,4 @@ void AttackHandleService::AttackDetected(RE::Character* attacked, RE::TESObjectR
     caster->CastSpellImmediate(
         RE::TESForm::LookupByEditorID<RE::MagicItem>("QTRChainLightning"), false,
         attacked, 1.0f, true, 1, attackerActor);
-
-    auto fx = RE::TESForm::LookupByID<RE::TESBoundObject>(0x2064A);
-    auto position = attacked->GetPosition() + RE::NiPoint3{0, 0, 80};
-    auto angle = attacked->GetAngle();
-    auto cell = attacked->GetParentCell();
-    auto worldspace = attacked->GetWorldspace();
-    RE::TESDataHandler::GetSingleton()->CreateReferenceAtLocation(
-        fx, position, angle, cell, worldspace, nullptr, nullptr,
-        RE::ObjectRefHandle(), false, true);
 }
