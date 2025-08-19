@@ -17,7 +17,6 @@ SKSEPluginLoad(const SKSE::LoadInterface *skse) {
     SetupLog();
     SKSE::GetMessagingInterface()->RegisterListener(OnMessage);
     logger::info("Plugin loaded");
-    UI::Register();
     Hooks::Install();
     QTRLib::Install();
     return true;
